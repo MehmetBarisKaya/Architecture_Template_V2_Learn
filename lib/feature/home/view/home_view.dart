@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 part 'widget/home_app_bar.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({Key? key}) : super(key: key);
+  const HomeView({super.key});
   @override
   State<HomeView> createState() => _HomeViewState();
 }
