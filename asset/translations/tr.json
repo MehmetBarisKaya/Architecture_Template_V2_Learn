@@ -1,0 +1,14 @@
+{
+    "home": {
+        "title": "Ana Sayfa"
+    },
+    "general": {
+        "button": "Kaydet"
+    },
+    "dialog": {
+        "version": {
+            "title": "Versiyon",
+            "content": "Versiyon Bilgisi"
+        }
+    }
+}
