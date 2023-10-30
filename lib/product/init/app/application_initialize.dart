@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:architecture_template_v2/product/init/config/app_environment.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_logger/easy_logger.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ import 'package:logger/logger.dart';
 final class ApplicationInitialize {
   ///Project basic initialize
   Future<void> setUp() async {
+    WidgetsFlutterBinding.ensureInitialized();
     await runZonedGuarded<Future<void>>(_initialize, (error, stack) {
       Logger().e(error);
     });
@@ -20,7 +22,6 @@ final class ApplicationInitialize {
 
   /// The method is used to initialize application process
   Future<void> _initialize() async {
-    WidgetsFlutterBinding.ensureInitialized();
     await EasyLocalization.ensureInitialized();
     EasyLocalization.logger.enableLevels = [LevelMessages.error];
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -28,11 +29,14 @@ final class ApplicationInitialize {
     ///Kartal
     ///TODO : Splash
     await DeviceUtility.instance.initPackageInfo();
+
     FlutterError.onError = (details) {
       ///crashlytics  log insert here
       ///custom service  or custom logger
       ///TODO : add custom logger
       Logger().e(details);
     };
+
+    AppEnvironment.general();
   }
 }

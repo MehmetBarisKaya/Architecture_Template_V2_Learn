@@ -1,5 +1,5 @@
 import 'package:architecture_template_v2/feature/home/view/home_view.dart';
-import 'package:architecture_template_v2/product/init/app/applicataion_initalize.dart';
+import 'package:architecture_template_v2/product/init/app/application_initialize.dart';
 import 'package:architecture_template_v2/product/init/product_localization.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
