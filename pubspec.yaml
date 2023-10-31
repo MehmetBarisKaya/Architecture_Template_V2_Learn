@@ -40,10 +40,6 @@ dependencies:
 
   gen:
     path: module/gen
-
-  common:
-    path: module/common
-
 #dependencies_overrides:
 
 dev_dependencies:
