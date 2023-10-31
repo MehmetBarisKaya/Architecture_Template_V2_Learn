@@ -9,9 +9,9 @@ environment:
   sdk: ">=3.1.2 <4.0.0"
 
 dependencies:
-  cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  cupertino_icons: ^1.0.2
 
   #Core
   equatable: ^2.0.5
@@ -27,26 +27,30 @@ dependencies:
 
   #Utility
   kartal: ^3.5.0
-  google_fonts: ^6.1.0
-
+  envied: ^0.3.0+3
   easy_logger: ^0.0.2
   logger: ^2.0.2+1
 
   #Module
   core:
     path: module/core
-
-  gen:
-    path: module/gen
+  google_fonts: ^6.1.0
 #dependencies_overrides:
 
 dev_dependencies:
   build_runner: ^2.4.6
-
+  envied_generator: ^0.3.0+3
+  #flutter_gen_runner: ^5.3.2
   flutter_launcher_icons: ^0.13.1
   flutter_test:
     sdk: flutter
+  json_annotation: ^4.8.1
+
   very_good_analysis: ^5.1.0
+
+flutter_gen:
+  output: lib/product/generated
+  integrations: true
 
 flutter_launcher_icons:
   android: "launcher_icon"
