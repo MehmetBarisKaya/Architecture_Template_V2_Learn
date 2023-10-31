@@ -28,8 +28,5 @@
     "workbench.colorCustomizations": {
         "tab.activeBorderTop": "#FFE81F"
     },
-    "editor.inlineSuggest.enabled": true,
-    "cSpell.words": [
-        "lato"
-    ]
+    "editor.inlineSuggest.enabled": true
 }
