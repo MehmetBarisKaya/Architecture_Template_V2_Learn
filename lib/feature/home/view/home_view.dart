@@ -9,6 +9,8 @@ import 'package:common/common.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
+import 'package:kartal/kartal.dart';
+import 'package:uikit_widgets/uikit_widgets.dart';
 
 part 'widget/home_app_bar.dart';
 
@@ -26,11 +28,27 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          SuccessDialog.show(title: 'title', context: context);
+        },
+        child: const Icon(Icons.add),
+      ),
       appBar: const _HomeAppBar(),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            ResponsiveAllView(
+              phone: Assets.lottie.animZombie.lottie(
+                package: 'gen',
+              ),
+              tablet: Text(AppEnvironmentItems.baseUrl.value),
+              desktop: Assets.images.imgFlags.image(
+                package: 'gen',
+              ),
+            ),
+            Text(''.ext.appName),
             const CustomCachedNetworkImage(
               imageUrl: 'http://',
               size: Size(100, 100),
