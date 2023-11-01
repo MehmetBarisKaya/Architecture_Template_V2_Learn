@@ -4,6 +4,7 @@ import 'package:architecture_template_v2/product/init/language/locale_keys.g.dar
 import 'package:architecture_template_v2/product/init/product_localization.dart';
 import 'package:architecture_template_v2/product/navigation/app_router.dart';
 import 'package:architecture_template_v2/product/utility/constant/enums/locales.dart';
+import 'package:architecture_template_v2/product/widget/padding/project_padding.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:common/common.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -36,50 +37,53 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
       ),
       appBar: const _HomeAppBar(),
       body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ResponsiveAllView(
-              phone: Assets.lottie.animZombie.lottie(
+        child: Padding(
+          padding: const ProjectPadding.allSmall(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ResponsiveAllView(
+                phone: Assets.lottie.animZombie.lottie(
+                  package: 'gen',
+                ),
+                tablet: Text(AppEnvironmentItems.baseUrl.value),
+                desktop: Assets.images.imgFlags.image(
+                  package: 'gen',
+                ),
+              ),
+              Text(''.ext.appName),
+              const CustomCachedNetworkImage(
+                imageUrl: 'http://',
+                size: Size(100, 100),
+              ),
+              Assets.lottie.animZombie.lottie(
                 package: 'gen',
               ),
-              tablet: Text(AppEnvironmentItems.baseUrl.value),
-              desktop: Assets.images.imgFlags.image(
+              Assets.images.imgFlags.image(
                 package: 'gen',
               ),
-            ),
-            Text(''.ext.appName),
-            const CustomCachedNetworkImage(
-              imageUrl: 'http://',
-              size: Size(100, 100),
-            ),
-            Assets.lottie.animZombie.lottie(
-              package: 'gen',
-            ),
-            Assets.images.imgFlags.image(
-              package: 'gen',
-            ),
-            const Text(LocaleKeys.home_title).tr(),
-            ElevatedButton(
-              onPressed: () async {
-                await ProductLocalization.updateLanguage(
-                  context: context,
-                  value: Locales.en,
-                );
-                setState(() {});
-              },
-              child: const Text('English'),
-            ),
-            ElevatedButton(
-              onPressed: () async {
-                final response =
-                    await context.router.push<bool>(HomeDetailRoute(id: '1'));
-                // ignore: avoid_print
-                print(response);
-              },
-              child: Text(AppEnvironmentItems.baseUrl.value),
-            ),
-          ],
+              const Text(LocaleKeys.home_title).tr(),
+              ElevatedButton(
+                onPressed: () async {
+                  await ProductLocalization.updateLanguage(
+                    context: context,
+                    value: Locales.en,
+                  );
+                  setState(() {});
+                },
+                child: const Text('English'),
+              ),
+              ElevatedButton(
+                onPressed: () async {
+                  final response =
+                      await context.router.push<bool>(HomeDetailRoute(id: '1'));
+                  // ignore: avoid_print
+                  print(response);
+                },
+                child: Text(AppEnvironmentItems.baseUrl.value),
+              ),
+            ],
+          ),
         ),
       ),
     );
