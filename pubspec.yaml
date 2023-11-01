@@ -46,6 +46,7 @@ dependencies:
 
   uikit_widgets:
     path: module/uikit_widgets
+  get_it: ^7.6.4
 
 #dependencies_overrides:
 
