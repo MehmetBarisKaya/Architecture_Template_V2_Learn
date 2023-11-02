@@ -1,4 +1,5 @@
 import 'package:architecture_template_v2/product/service/manager/index.dart';
+import 'package:architecture_template_v2/product/state/view_model/product_view_model.dart';
 import 'package:get_it/get_it.dart';
 
 ///Product core container for dependency injection
@@ -9,7 +10,8 @@ final class ProductStateContainer {
   ///product core required items
   static void setUp() {
     _getIt
-        .registerSingleton<ProductNetworkManager>(ProductNetworkManager.base());
+      ..registerSingleton<ProductNetworkManager>(ProductNetworkManager.base())
+      ..registerLazySingleton<ProductViewModel>(ProductViewModel.new);
   }
 
   ///read your dependency item for [ProductStateContainer]
