@@ -47,6 +47,8 @@ dependencies:
   uikit_widgets:
     path: module/uikit_widgets
   get_it: ^7.6.4
+  bloc: ^8.1.2
+  flutter_bloc: ^8.1.3
 
 #dependencies_overrides:
 
