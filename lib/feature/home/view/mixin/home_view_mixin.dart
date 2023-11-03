@@ -3,6 +3,7 @@ import 'package:architecture_template_v2/feature/home/viewmodel/home_view_model.
 import 'package:architecture_template_v2/product/service/manager/product_network_error_manager.dart';
 import 'package:architecture_template_v2/product/service/post_service/post_service.dart';
 import 'package:architecture_template_v2/product/state/base/base_state.dart';
+import 'package:architecture_template_v2/product/state/container/product_state_items.dart';
 
 ///Manage  home view logic
 mixin HomeViewMixin on BaseState<HomeView> {
@@ -27,6 +28,7 @@ mixin HomeViewMixin on BaseState<HomeView> {
       postOperation: PostService(
         networkManager: productNetworkManager,
       ),
+      postCacheOperation: ProductStateItems.productCache.postCacheOperation,
     );
   }
 }

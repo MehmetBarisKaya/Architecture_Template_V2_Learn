@@ -4,7 +4,7 @@ import 'package:hive/hive.dart';
 
 ///This class is a cache operation implementation for the Hive database. It
 ///provides methods for adding, retrieving, and removing items from the cache.
-final class HiveCacheOperation<T extends CacheModel> extends CacheOperation<T> {
+class HiveCacheOperation<T extends CacheModel> extends CacheOperation<T> {
   ///Initialize the hive box
   HiveCacheOperation() {
     _box = Hive.box<T>(name: T.toString());
