@@ -1,4 +1,5 @@
 import 'package:architecture_template_v2/feature/home/view/mixin/home_view_mixin.dart';
+import 'package:architecture_template_v2/feature/home/view/widget/home_post_list.dart';
 import 'package:architecture_template_v2/feature/home/viewmodel/home_view_model.dart';
 import 'package:architecture_template_v2/feature/home/viewmodel/state/home_view_state.dart';
 import 'package:architecture_template_v2/product/state/base/base_state.dart';
@@ -37,7 +38,7 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
         body: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(child: _PostList()),
+            Expanded(child: PostBlocList()),
           ],
         ),
       ),
@@ -45,8 +46,8 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
   }
 }
 
-class _PostList extends StatelessWidget {
-  const _PostList();
+class PostBlocList extends StatelessWidget {
+  const PostBlocList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -61,14 +62,8 @@ class _PostList extends StatelessWidget {
         },
         builder: (context, state) {
           if (state.isEmpty) return const SizedBox.shrink();
-          return ListView.builder(
-            itemCount: state.length,
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                title: Text(state[index].title ?? ''),
-                subtitle: Text(state[index].body ?? ''),
-              );
-            },
+          return HomePostList(
+            posts: state,
           );
         },
       ),
