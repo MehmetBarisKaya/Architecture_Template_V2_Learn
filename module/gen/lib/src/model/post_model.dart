@@ -43,7 +43,5 @@ class PostModel extends INetworkModel<PostModel> with EquatableMixin {
   }
 
   @override
-  Map<String, dynamic>? toJson() {
-    return _$PostModelToJson(this);
-  }
+  Map<String, dynamic> toJson() => _$PostModelToJson(this);
 }

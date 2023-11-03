@@ -9,7 +9,7 @@ class ProductNetworkManager extends NetworkManager<EmptyModel> {
   ///
   ProductNetworkManager.base()
       : super(
-          isEnableLogger: true,
+          //isEnableLogger: true,
           options: BaseOptions(
             baseUrl: AppEnvironmentItems.baseUrl.value,
           ),

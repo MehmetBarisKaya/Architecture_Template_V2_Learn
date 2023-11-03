@@ -51,7 +51,10 @@ class _PostList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<HomeViewModel, HomeViewState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        final items = state.posts;
+        if (items == null) return;
+      },
       child: BlocSelector<HomeViewModel, HomeViewState, List<PostModel>>(
         selector: (state) {
           return state.posts ?? [];
